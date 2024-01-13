@@ -21,7 +21,7 @@ namespace BlogApp.API.Migrations
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FeaturedImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UrlHandle = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PublishDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PublishedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsVisible = table.Column<bool>(type: "bit", nullable: false)
                 },
