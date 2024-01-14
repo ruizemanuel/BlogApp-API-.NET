@@ -1,4 +1,6 @@
 ﻿using BlogApp.API.Models.Domain;
+using BlogApp.API.Models.DTO;
+using BlogApp.API.Repositories.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +10,12 @@ namespace BlogApp.API.Controllers
     [ApiController]
     public class ImagesController : ControllerBase
     {
+        private readonly IImageRepository imageRepository;
+
+        public ImagesController(IImageRepository imageRepository)
+        {
+            this.imageRepository = imageRepository;
+        }
         [HttpPost]
         public async Task<IActionResult> UploadImage([FromForm] IFormFile file, [FromForm] string fileName, [FromForm] string title)
         {
@@ -21,7 +29,22 @@ namespace BlogApp.API.Controllers
                     Title = title,
                     DateCreated = DateTime.Now,
                 };
+                blogImage = await imageRepository.Upload(file, blogImage);
+
+                //Domain to DTO
+                var response = new BlogImageDto
+                {
+                    Id = blogImage.Id,
+                    Title = blogImage.Title,
+                    DateCreated = blogImage.DateCreated,
+                    FileExtension = blogImage.FileExtension,
+                    FileName = blogImage.FileName,
+                    Url = blogImage.Url,
+                };
+
+                return Ok(response);
             }
+            return BadRequest(ModelState);
         }
         private void ValidateFileUpload(IFormFile file)
         {
