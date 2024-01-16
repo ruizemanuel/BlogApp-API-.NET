@@ -1,6 +1,7 @@
 ﻿using BlogApp.API.Models.Domain;
 using BlogApp.API.Models.DTO;
 using BlogApp.API.Repositories.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,8 +21,8 @@ namespace BlogApp.API.Controllers
             this.categoryRepository = categoryRepository;
         }
         [HttpPost]
-
-        public async Task<IActionResult> CreateBlogPost([FromBody]CreateBlogPostRequestDto request)
+        [Authorize(Roles = "Writer")]
+        public async Task<IActionResult> CreateBlogPost([FromBody] CreateBlogPostRequestDto request)
         {
             //Dto to domain
             var blogPost = new BlogPost
@@ -177,6 +178,7 @@ namespace BlogApp.API.Controllers
 
         [HttpPut]
         [Route("{id:Guid}")]
+        [Authorize(Roles = "Writer")]
 
         public async Task<IActionResult> UpdateBlogPostById([FromRoute] Guid id, UpdateBlogPostRequestDTO request)
         {
@@ -237,6 +239,7 @@ namespace BlogApp.API.Controllers
 
         [HttpDelete]
         [Route("{id:Guid}")]
+        [Authorize(Roles = "Writer")]
 
         public async Task<IActionResult> DeleteBlogPost([FromRoute] Guid id)
         {
