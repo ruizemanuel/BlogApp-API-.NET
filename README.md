@@ -2,6 +2,14 @@
 
 This project is the .NET backend developed to complement the Angular Blog Project. Here, you will find information about the main features of the backend, how to install, run it, and the necessary configuration.
 
+## Test the App
+
+Test the app on the live demo: [blogapp-emanuelruiz.netlify.app/](https://blogapp-emanuelruiz.netlify.app/)
+
+Credentials:
+User: admin@blogapp.com
+Password: Admin@123
+
 ## Key Features
 
 - **RESTful API:** Developed using ASP.NET, it provides a RESTful API to manage user authentication, blog posts, upload images and other functionalities.
@@ -37,6 +45,10 @@ Start Visual Studio and open the BlogApp.API.sln file. Then go to Tools - Nuget 
 - `Update-Database -Context "ApplicationDbContext"`
 - `Update-Database -Context "AuthDbContext"`
 Finally run the app by clicking the "play" button on the toolbar.
+
+## Frontend Configuration
+
+To run the frontend locally, download it from [Github](https://github.com/ruizemanuel/BlogApp-UI-Angular) and follow the instructions in the frontend's README.
 
 
 ## Autor
