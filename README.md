@@ -44,6 +44,8 @@ Password: Admin@123
 Start Visual Studio and open the BlogApp.API.sln file. Then go to Tools - Nuget Package Manager - Package Manager Console and run this commands to run the corresponding migrations to your local DB:
 - `Update-Database -Context "ApplicationDbContext"`
 - `Update-Database -Context "AuthDbContext"`
+
+
 Finally run the app by clicking the "play" button on the toolbar.
 
 ## Frontend Configuration
