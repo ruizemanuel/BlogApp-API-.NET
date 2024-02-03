@@ -7,7 +7,11 @@ This project is the .NET backend developed to complement the Angular Blog Projec
 Test the app on the live demo: [blogapp-emanuelruiz.netlify.app](https://blogapp-emanuelruiz.netlify.app/)
 
 Credentials:
+
+
 User: admin@blogapp.com
+
+
 Password: Admin@123
 
 ## Key Features
